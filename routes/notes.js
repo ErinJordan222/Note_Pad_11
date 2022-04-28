@@ -7,8 +7,9 @@ const {
   writeToFile,
 } = require('../helpers/fsUtils');
 
-notes.get('/', (req,res) => {
-    readFromFile('./db.json').then((data) => res.json(JSON.parse(data)));
+notes.get('/notes', (req,res) => {
+    console.log('hey in the notes.getroute')
+    readFromFile('./db/db.json', 'utf8').then((data) => res.json(JSON.parse(data)));
 });
 
 notes.get('/:id', (req, res) => {
@@ -23,18 +24,20 @@ notes.get('/:id', (req, res) => {
     });
 });
 
-notes.delete('/:id', (req, res) => {
+notes.delete('/notes/:id', (req, res) => {
+    console.log(req.params.id);
     const noteId = req.params.id;
     readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
+        console.log(json);
         const result = json.filter((note) => note.id !== noteId);
         writeToFile('./db/db.json', result);
         res.json('Note deleted!');
     });
 });
 
-notes.post('/', (req, res) => {
+notes.post('/notes', (req, res) => {
     console.log(req.body);
 
     const { title, text } = req.body;
