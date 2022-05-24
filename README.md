@@ -6,7 +6,7 @@
 ### Erin Jordan's Note Taker Week 11 Project for University of Denver Coding Bootcamp. 
 #### The purpose of this project is to help manage your life! Aka a note pad app. You can add Reminders/ Goals with notes to help you manage your tasks.  
 
-* https://github.com/ErinJordan222/Note_Pad_11.git
+* https://note-pad-du-11.herokuapp.com/
 
 ## Table of Contents
 * [Description](#description)
